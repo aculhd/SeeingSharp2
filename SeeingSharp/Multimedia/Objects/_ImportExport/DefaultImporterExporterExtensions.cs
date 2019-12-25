@@ -45,8 +45,9 @@ namespace SeeingSharp.Multimedia.Objects
 
         public IEnumerable<IModelImporter> CreateModelImporters()
         {
-            yield return new ACImporter();
-            yield return new StLImporter();
+            //yield return new ACImporter();
+            //yield return new StLImporter();
+            yield break;
         }
     }
 }
