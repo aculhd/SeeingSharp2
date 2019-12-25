@@ -19,6 +19,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with this program.  If not, see http://www.gnu.org/licenses/.
 */
+
+using System.Numerics;
+
 namespace SeeingSharp.Multimedia.Objects
 {
     public struct TriangleCorner
@@ -33,5 +36,37 @@ namespace SeeingSharp.Multimedia.Objects
         /// The index of this <see cref="TriangleCorner"/>
         /// </summary>
         public int Index;
+
+        /// <summary>
+        /// Retrieves or sets the normal of the vertex
+        /// </summary>
+        public Vector3 Normal;
+
+        /// <summary>
+        /// Retrieves or sets the color of the vertex
+        /// </summary>
+        public Color4 Color;
+
+        /// <summary>
+        /// Gets or sets the tangent vector.
+        /// </summary>
+        public Vector3 Tangent;
+
+        /// <summary>
+        /// Gets or sets the binormal vector.
+        /// </summary>
+        public Vector3 Binormal;
+
+        /// <summary>
+        /// Gets or sets the texture factor.
+        /// This value decides whether a texture is displayed on this vertex or not.
+        /// A value greater or equal 0 will show the texture, all negatives will hide it.
+        /// </summary>
+        public float TextureFactor;
+
+        /// <summary>
+        /// Retrieves or sets first texture coordinate
+        /// </summary>
+        public Vector2 Coordinate1;
     }
 }
