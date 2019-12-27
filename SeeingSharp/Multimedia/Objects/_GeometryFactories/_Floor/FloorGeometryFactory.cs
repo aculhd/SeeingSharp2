@@ -208,7 +208,7 @@ namespace SeeingSharp.Multimedia.Objects
                     actTile.YPos * m_tileSize.Y - totalHalfSize.Y);
 
                 // AddObject tile information to current Geometry
-                actSurface.BuildCubeTop4V(
+                actSurface.BuildCubeTop(
                     new Vector3(tilePosition.X, 0, tilePosition.Z),
                     new Vector3(m_tileSize.X, 0, m_tileSize.Y),
                     Color4.White);

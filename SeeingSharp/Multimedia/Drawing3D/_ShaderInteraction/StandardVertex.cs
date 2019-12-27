@@ -107,21 +107,6 @@ namespace SeeingSharp.Multimedia.Drawing3D
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StandardVertex"/> struct.
-        /// </summary>
-        /// <param name="vertex">Source vertex data.</param>
-        public StandardVertex(Vertex vertex)
-        {
-            Position = vertex.Position;
-            Normal = vertex.Normal;
-            Texture = vertex.TexCoord;
-            Color = vertex.Color.ToRgba();
-            Tangent = vertex.Tangent;
-            Binormal = vertex.Binormal;
-            TextureFactor = vertex.TextureFactor;
-        }
-
-        /// <summary>
         /// Gets an array of StandardVertices from the given Geometry object.
         /// </summary>
         public static StandardVertex[] FromGeometry(Geometry source)
@@ -130,47 +115,12 @@ namespace SeeingSharp.Multimedia.Drawing3D
 
             var vertexCount = source.CountVertices;
 
-            //Create result array
+            // Create result array
             var result = new StandardVertex[vertexCount];
-
             for (var loop = 0; loop < source.CountVertices; loop++)
             {
                 var vertex = source.Vertices[loop];
                 result[loop] = new StandardVertex(vertex);
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Gets an array of StandardVertices from the given Geometry objects.
-        /// </summary>
-        public static StandardVertex[] FromGeometry(Geometry[] geometries)
-        {
-            geometries.EnsureNotNullOrEmpty(nameof(geometries));
-
-            //Get total vertex count
-            var vertexCount = 0;
-
-            for (var loop = 0; loop < geometries.Length; loop++)
-            {
-                vertexCount += geometries[loop].CountVertices;
-            }
-
-            //create result array
-            var result = new StandardVertex[vertexCount];
-            var actVertexPos = 0;
-
-            for (var loop = 0; loop < geometries.Length; loop++)
-            {
-                var actGeometry = geometries[loop];
-                var geometryVertexCount = actGeometry.CountVertices;
-
-                for (var innerLoop = 0; innerLoop < geometryVertexCount; innerLoop++)
-                {
-                    result[actVertexPos] = new StandardVertex(actGeometry.Vertices[innerLoop]);
-                    actVertexPos++;
-                }
             }
 
             return result;

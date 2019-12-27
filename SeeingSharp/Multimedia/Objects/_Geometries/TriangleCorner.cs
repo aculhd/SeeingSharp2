@@ -26,16 +26,60 @@ namespace SeeingSharp.Multimedia.Objects
 {
     public struct TriangleCorner
     {
-        public TriangleCorner(int index)
+        internal TriangleCorner(int index)
             : this()
         {
             Index = index;
+
+            Normal = Vector3.Zero;
+            Tangent = Vector3.Zero;
+            Color = Color4.White;
+            Binormal = Vector3.Zero;
+            TextureFactor = 0f;
+            TexCoord1 = Vector2.Zero;
+        }
+
+        internal TriangleCorner(int index, Color4 color, Vector2 textureCoordinate, Vector3 normal)
+            : this()
+        {
+            Index = index;
+
+            Normal = normal;
+            Tangent = Vector3.Zero;
+            Color = color;
+            Binormal = Vector3.Zero;
+            TextureFactor = 0f;
+            TexCoord1 = textureCoordinate;
+        }
+
+        internal TriangleCorner(int index, ref TriangleCornerTemplate template)
+        {
+            this.Index = index;
+
+            Normal = template.Normal;
+            Tangent = template.Tangent;
+            Color = template.Color;
+            Binormal = template.Binormal;
+            TextureFactor = template.TextureFactor;
+            TexCoord1 = template.TexCoord1;
+        }
+
+        internal TriangleCorner(int index, ref TriangleCorner template)
+        {
+            this.Index = index;
+
+            Normal = template.Normal;
+            Tangent = template.Tangent;
+            Color = template.Color;
+            Binormal = template.Binormal;
+            TextureFactor = template.TextureFactor;
+            TexCoord1 = template.TexCoord1;
         }
 
         /// <summary>
         /// The index of this <see cref="TriangleCorner"/>
         /// </summary>
-        public int Index;
+        public readonly int Index;
 
         /// <summary>
         /// Retrieves or sets the normal of the vertex
@@ -67,6 +111,6 @@ namespace SeeingSharp.Multimedia.Objects
         /// <summary>
         /// Retrieves or sets first texture coordinate
         /// </summary>
-        public Vector2 Coordinate1;
+        public Vector2 TexCoord1;
     }
 }

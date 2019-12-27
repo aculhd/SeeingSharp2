@@ -118,27 +118,27 @@ namespace SeeingSharp.SampleContainer.Basics3D._10_MultiMaterial
             var result = new Geometry();
 
             var surface1 = result.CreateSurface();
-            surface1.BuildCubeBottom4V(
+            surface1.BuildCubeBottom(
                 new Vector3(-1f, 0f, -1f),
                 new Vector3(2f, 1f, 2f),
                 Color4.White);
-            surface1.BuildCubeSides16V(
+            surface1.BuildCubeSides(
                 new Vector3(-1f, 0f, -1f),
                 new Vector3(2f, 1f, 2f),
                 Color4.White);
 
             var surface2 = result.CreateSurface();
-            surface2.BuildCubeSides16V(
+            surface2.BuildCubeSides(
                 new Vector3(-1f, 1f, -1f),
                 new Vector3(2f, 1f, 2f),
                 Color4.White);
 
             var surface3 = result.CreateSurface();
-            surface3.BuildCubeSides16V(
+            surface3.BuildCubeSides(
                 new Vector3(-1f, 2f, -1f),
                 new Vector3(2f, 1f, 2f),
                 Color4.White);
-            surface3.BuildCubeTop4V(
+            surface3.BuildCubeTop(
                 new Vector3(-1f, 2f, -1f),
                 new Vector3(2f, 1f, 2f),
                 Color4.White);

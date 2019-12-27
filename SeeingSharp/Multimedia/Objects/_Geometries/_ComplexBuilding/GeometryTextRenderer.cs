@@ -233,7 +233,7 @@ namespace SeeingSharp.Multimedia.Objects
                 {
                     foreach (var actLine in actPolygon.Lines)
                     {
-                        tempSurface.BuildRect4V(
+                        tempSurface.BuildRect(
                             new Vector3(actLine.StartPosition.X, -volumetricTextDepth, actLine.StartPosition.Y),
                             new Vector3(actLine.EndPosition.X, -volumetricTextDepth, actLine.EndPosition.Y),
                             new Vector3(actLine.EndPosition.X, 0f, actLine.EndPosition.Y),

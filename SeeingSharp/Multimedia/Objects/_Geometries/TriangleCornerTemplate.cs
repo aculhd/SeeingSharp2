@@ -1,10 +1,10 @@
-/*
+﻿/*
     Seeing# and all applications distributed together with it. 
 	Exceptions are projects where it is noted otherwise.
     More info at 
      - https://github.com/RolandKoenig/SeeingSharp2 (sourcecode)
      - http://www.rolandk.de (the authors homepage, german)
-    Copyright (C) 2019 Roland K�nig (RolandK)
+    Copyright (C) 2019 Roland König (RolandK)
     
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published
@@ -19,32 +19,52 @@
     You should have received a copy of the GNU Lesser General Public License
     along with this program.  If not, see http://www.gnu.org/licenses/.
 */
+
 using System.Numerics;
-using System.Runtime.InteropServices;
 
 namespace SeeingSharp.Multimedia.Objects
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public struct TextureData
+    public struct TriangleCornerTemplate
     {
-        /// <summary>
-        /// Initializes a new TextureData structure
-        /// </summary>
-        public TextureData(Vector2 coord1)
+        internal TriangleCornerTemplate(Color4 color, Vector2 textureCoordinate, Vector3 normal)
         {
-            Coordinate1 = coord1;
+            Normal = normal;
+            Tangent = Vector3.Zero;
+            Color = color;
+            Binormal = Vector3.Zero;
             TextureFactor = 0f;
+            TexCoord1 = textureCoordinate;
+        }
+
+        internal TriangleCornerTemplate(TriangleCorner template)
+        {
+            Normal = template.Normal;
+            Tangent = template.Tangent;
+            Color = template.Color;
+            Binormal = template.Binormal;
+            TextureFactor = template.TextureFactor;
+            TexCoord1 = template.TexCoord1;
         }
 
         /// <summary>
-        /// Copies this structure and changes some data
+        /// Retrieves or sets the normal of the vertex
         /// </summary>
-        public TextureData Copy(Vector2 newCoord1)
-        {
-            var result = this;
-            result.Coordinate1 = newCoord1;
-            return result;
-        }
+        public Vector3 Normal;
+
+        /// <summary>
+        /// Retrieves or sets the color of the vertex
+        /// </summary>
+        public Color4 Color;
+
+        /// <summary>
+        /// Gets or sets the tangent vector.
+        /// </summary>
+        public Vector3 Tangent;
+
+        /// <summary>
+        /// Gets or sets the binormal vector.
+        /// </summary>
+        public Vector3 Binormal;
 
         /// <summary>
         /// Gets or sets the texture factor.
@@ -56,6 +76,6 @@ namespace SeeingSharp.Multimedia.Objects
         /// <summary>
         /// Retrieves or sets first texture coordinate
         /// </summary>
-        public Vector2 Coordinate1;
+        public Vector2 TexCoord1;
     }
 }
